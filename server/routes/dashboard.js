@@ -5,6 +5,6 @@ const dashboardController = require("../controllers/dashboardController");
 
 router.get("/dashboard", isLogin, dashboardController.dashboard);
 router.get("/dashboard/item/:id", isLogin, dashboardController.viewNote);
-router.post("/dashboard/item/:id", isLogin, dashboardController.updateNote);
+router.put("/dashboard/item/:id", isLogin, dashboardController.updateNote);
 
 module.exports = router;

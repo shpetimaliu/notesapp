@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
+const methodOverride = require("method-override");
 const connectDB = require("./server/config/db");
 const session = require("express-session");
 const passport = require("passport");
@@ -18,7 +19,7 @@ app.use(
     store: MongoStore.create({
       mongoUrl: process.env.MONGODB_URI,
     }),
-    // cookie: { maxAge: new Date(Date.now() + 3000) },
+    // cookie: { maxAge: new Date(Date.now() + 1000) },
   })
 );
 
@@ -27,6 +28,7 @@ app.use(passport.session());
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(methodOverride("_method"));
 
 // Connect Database
 connectDB();
