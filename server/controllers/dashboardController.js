@@ -48,3 +48,23 @@ exports.dashboard = async (req, res) => {
     res.status(500).send("Something went wrong...");
   }
 };
+
+exports.viewNote = async (req, res) => {
+  const note = await Note.findById({ _id: req.params.id })
+    .where({
+      user: req.user.id,
+    })
+    .lean();
+
+  if (note) {
+    res.render("dashboard/view-notes", {
+      noteId: req.params.id,
+      note,
+      layout: "../views/layouts/dashboard",
+    });
+  } else {
+    res.send("Something went wrong, please try again later!");
+  }
+};
+
+exports.updateNote = async (req, res) => {};
