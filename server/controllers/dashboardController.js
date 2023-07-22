@@ -79,3 +79,12 @@ exports.updateNote = async (req, res) => {
     console.log(err);
   }
 };
+
+exports.deleteNote = async (req, res) => {
+  try {
+    await Note.deleteOne({ _id: req.params.id }).where({ user: req.user.id });
+    res.redirect("/dashboard");
+  } catch (err) {
+    console.log(err);
+  }
+};
