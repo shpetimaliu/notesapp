@@ -1,6 +1,7 @@
 :root {
   --background-color: #ffc700;
   --bs-primary-rgb: #12296c;
+  --bs-black: #000000;
 }
 
 body {
@@ -87,4 +88,18 @@ h6 {
   position: absolute;
   right: -20%;
   bottom: -20px;
+}
+
+.page-link {
+  position: relative;
+  display: block;
+  padding: var(--bs-pagination-padding-y) var(--bs-pagination-padding-x);
+  font-size: var(--bs-pagination-font-size);
+  color: var(---bs-black);
+  text-decoration: none;
+  background-color: var(--bs-pagination-bg);
+  border: var(--bs-pagination-border-width) solid
+    var(--bs-pagination-border-color);
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
