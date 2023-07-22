@@ -11,5 +11,7 @@ router.delete(
   isLogin,
   dashboardController.deleteNote
 );
+router.get("/dashboard/add", isLogin, dashboardController.addNote);
+router.post("/dashboard/add", isLogin, dashboardController.addSubmitNote);
 
 module.exports = router;
