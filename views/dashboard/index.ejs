@@ -9,12 +9,11 @@
   </div>
 
   <div class="row">
-    <% if(notes.length > 0) {for(let i = 0; i < notes.length; i++) { %>
-
+    <% if (notes.length > 0) { for(var i=0; i < notes.length; i++) { %>
     <div class="col-sm-3 mb-4">
       <div class="card border-primary" style="min-height: 210px">
         <a
-          href="/dashboard/item<%= notes[i]._id %>"
+          href="/dashboard/item/<%= notes[i]._id %>"
           class="card-body text-decoration-none"
         >
           <h5 class="card-title"><%= notes[i].title %></h5>
@@ -22,22 +21,22 @@
         </a>
       </div>
     </div>
-  </div>
-
-  <% }} else { %>
-
-  <div class="row">
-    <div class="col-3">
-      <img src="/img/human-3.svg" alt="human" />
+    <% }} else { %>
+    <div class="row">
+      <div class="col-3">
+        <img
+          src="/img/human-3.svg"
+          alt="Human pointing hand toward a create button"
+        />
+      </div>
+      <div class="col mt-md-4">
+        <h2>Okay...</h2>
+        <h4>
+          Let's start with your first note!<br /><br />
+          <a href="/dashboard/add">Create one!</a>
+        </h4>
+      </div>
     </div>
-    <div class="col mt-md-4">
-      <h2>Okay..</h2>
-      <h4>
-        Start with one note!<br /><br />
-        <a href="/dashboard/add">Create one</a>
-      </h4>
-    </div>
+    <% } %>
   </div>
-
-  <% } %>
 </div>
