@@ -1,3 +1,4 @@
+const Notes = require("../models/Notes");
 const Note = require("../models/Notes");
 const mongoose = require("mongoose");
 
@@ -109,7 +110,28 @@ exports.dashboardSearch = async (req, res) => {
   try {
     res.render("dashboard/search", {
       searchResult: "",
-      layout: "../views/layout/dashboard",
+      layout: "../views/layouts/dashboard",
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+exports.dashboardSearchSubmit = async (req, res) => {
+  try {
+    let searchTerm = req.body.searchTerm;
+    const searchRegex = searchTerm.replace(/[^a-zA-Z0-9]/g, "");
+
+    const searchRes = await Notes.find({
+      $or: [
+        { title: { $regex: new RegExp(searchRegex, "i") } },
+        { body: { $regex: new RegExp(searchRegex, "i") } },
+      ],
+    }).where({ user: req.user.id });
+
+    res.render("dashboard/search", {
+      searchRes,
+      layout: "/views/layouts/dashboard",
     });
   } catch (err) {
     console.log(err);
