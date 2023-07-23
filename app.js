@@ -11,6 +11,9 @@ const MongoStore = require("connect-mongo");
 const app = express();
 const port = 3000 || process.env.PORT;
 
+const twentyFourHoursInMilliseconds = 24 * 60 * 60 * 1000;
+const expirationDate = new Date(Date.now() + twentyFourHoursInMilliseconds);
+
 app.use(
   session({
     secret: process.env.SECRET_COOKIE,
@@ -19,10 +22,12 @@ app.use(
     store: MongoStore.create({
       mongoUrl: process.env.MONGODB_URI,
     }),
-    // cookie: { maxAge: new Date(Date.now() + 1000) },
+    cookie: {
+      expires: expirationDate, // Set the expiration date for the cookie -- Vendosni datën e skadencës për cookie-t
+      httpOnly: true,
+    },
   })
 );
-
 app.use(passport.initialize());
 app.use(passport.session());
 
