@@ -104,3 +104,14 @@ exports.addSubmitNote = async (req, res) => {
     console.log(error);
   }
 };
+
+exports.dashboardSearch = async (req, res) => {
+  try {
+    res.render("dashboard/search", {
+      searchResult: "",
+      layout: "../views/layout/dashboard",
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};

@@ -13,5 +13,11 @@ router.delete(
 );
 router.get("/dashboard/add", isLogin, dashboardController.addNote);
 router.post("/dashboard/add", isLogin, dashboardController.addSubmitNote);
+router.get("/dashboard/search", isLogin, dashboardController.dashboardSearch);
+router.post(
+  "/dashboard/search",
+  isLogin,
+  dashboardController.dashboardSearchSubmit
+);
 
 module.exports = router;
