@@ -9,7 +9,6 @@ This is a README for the NotesApp project, which is a web application built with
 - [Getting Started](#getting-started)
 - [Features](#features)
 - [Contribution](#contribution)
-- [License](#license)
 
 ## Project Structure
 
@@ -110,8 +109,8 @@ Ky është një README për projektin NotesApp, i cili është një aplikacion w
 - [Dependencat](#dependencat)
 - [Fillimi](#fillimi)
 - [Veçoritë](#veçoritë)
-- [Kontribuimi](#kontribuimi)
-- [Licenca](#licenca)
+- [Kontributi](#kontributi)
+
 
 ## Struktura e Projektin
 
@@ -194,7 +193,7 @@ NotesApp ka këto veçori:
 
 6. **Menaxhimi i Sesionit:** Aplikacioni përdor express-session për të menaxhuar sesionet e përdoruesit dhe për të ruajtur të dhënat e sesionit në MongoDB.
 
-## Kontribuimi
+## Kontributi
 
 Nëse dëshironi të kontribuoni në projekt, mund të paraqisni një kërkesë (pull request). Rregullimet e gabimeve, përmirësimet dhe veçoritë e reja janë të mirëpritura!
 
