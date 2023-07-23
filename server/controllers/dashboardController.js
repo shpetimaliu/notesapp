@@ -122,7 +122,7 @@ exports.dashboardSearchSubmit = async (req, res) => {
     let searchTerm = req.body.searchTerm;
     const searchRegex = searchTerm.replace(/[^a-zA-Z0-9]/g, "");
 
-    const searchRes = await Notes.find({
+    const searchResult = await Notes.find({
       $or: [
         { title: { $regex: new RegExp(searchRegex, "i") } },
         { body: { $regex: new RegExp(searchRegex, "i") } },
